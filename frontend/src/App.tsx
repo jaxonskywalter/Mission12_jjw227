@@ -1,5 +1,6 @@
 import React from 'react';
 
+//the copied in json list of basket ball teams and their info
 const teams = [
     {"tid": 159, "cid": 0, "did": 0, "school": "Boston College", "name": "Eagles", "abbrev": "BC", "pop": 161, "city": "Chestnut Hill", "state": "MA", "latitude": 42.330, "longitude": -71.166},
     {"tid": 105, "cid": 0, "did": 0, "school": "Clemson", "name": "Tigers", "abbrev": "CLEM", "pop": 215, "city": "Clemson", "state": "SC", "latitude": 34.678, "longitude": -82.839},
@@ -323,10 +324,12 @@ const teams = [
     {"tid": 287, "cid": 19, "did": 39, "school": "Houston Baptist", "name": "Huskies", "abbrev": "HBU", "pop": 33, "city": "Greater Sharpstown", "state": "TX", "latitude": 29.694 , "longitude": -95.515}  
 ]
 
+//header function
 function Welcome() {
   return (<h1>NCAA Basketball Teams</h1>);
 }
 
+//calls the names from the json list
 class Team extends React.Component<any, any> {
   render() {
     const oneTeam = this.props;
@@ -339,6 +342,8 @@ class Team extends React.Component<any, any> {
     );
   }
 }
+
+//makes a card for each team in the list
 function TeamList() {
   return (
     <div>
@@ -346,6 +351,8 @@ function TeamList() {
     </div>
   );
 }
+
+//brings all the fucntions together to display on the webpage
 function App() {
     return (
         <div>
