@@ -1,5 +1,6 @@
-{
-    "teams": [
+import React from 'react';
+
+    const teams = [
             {"tid": 159, "cid": 0, "did": 0, "school": "Boston College", "name": "Eagles", "abbrev": "BC", "pop": 161, "city": "Chestnut Hill", "state": "MA", "latitude": 42.330, "longitude": -71.166},
             {"tid": 105, "cid": 0, "did": 0, "school": "Clemson", "name": "Tigers", "abbrev": "CLEM", "pop": 215, "city": "Clemson", "state": "SC", "latitude": 34.678, "longitude": -82.839},
             {"tid": 109, "cid": 0, "did": 0, "school": "Florida State", "name": "Seminoles", "abbrev": "FSU", "pop": 211, "city": "Tallahassee", "state": "FL", "latitude": 30.442, "longitude": -84.298},
@@ -321,4 +322,40 @@
             {"tid": 212, "cid": 19, "did": 39, "school": "Tulane", "name": "Green Wave", "abbrev": "TUL", "pop": 108, "city": "New Orleans", "state": "NO", "latitude": 29.935 , "longitude": -90.122},		
             {"tid": 287, "cid": 19, "did": 39, "school": "Houston Baptist", "name": "Huskies", "abbrev": "HBU", "pop": 33, "city": "Greater Sharpstown", "state": "TX", "latitude": 29.694 , "longitude": -95.515}  
     ]
+
+function Welcome() {
+  return (<h1>NCAA Basketball Teams</h1>);
 }
+
+class Team extends React.Component {
+  render() {
+    const oneTeam = this.props;
+    return (
+      <div>
+        <img/>
+        <h2>School: {oneTeam.school}</h2>
+        <h3>Mascot: {oneTeam.name}</h3>
+        <h3>Location: {oneTeam.city}, {oneTeam.state}</h3>
+      </div>
+    );
+  }
+}
+function TeamList() {
+  return (
+    <div>
+      {teams.map(oneTeam => <Team {...oneTeam}/>)}
+    </div>
+  );
+}
+function App() {
+    return (
+        <div>
+            <Welcome/>
+            <TeamList/>
+        </div>
+    );
+}
+ReactDOM.render(
+    <App/>,
+    document.getElementById('mountNode'),
+);
